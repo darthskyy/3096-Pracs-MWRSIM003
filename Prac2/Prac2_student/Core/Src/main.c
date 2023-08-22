@@ -53,7 +53,9 @@ TIM_HandleTypeDef htim16;
 
 /* USER CODE BEGIN PV */
 // TODO: Define any input variables
-static uint8_t patterns[] = {};
+static uint8_t patterns[] = {
+  0b10101010, 0b01010101, 0b11001100, 0b11001100, 0b11110000, 0b00001111
+};
 
 
 /* USER CODE END PV */
