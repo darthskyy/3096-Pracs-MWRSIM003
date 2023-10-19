@@ -37,7 +37,7 @@
 // TASK 2: Define values for NS, TIM2CLK, and F_SIGNAL
 #define NS        128// Number of samples in LUT
 #define TIM2CLK   8000000// STM Clock frequency
-#define F_SIGNAL  1000// Frequency of output analog signal
+#define F_SIGNAL  900// Frequency of output analog signal
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -88,7 +88,7 @@ uint32_t saw_LUT[NS] = {
   775,783,791,799,807,815,823,831,
   839,847,855,863,871,879,887,895,
   903,911,919,927,935,943,951,959,
-  967,975,983,991,999,1007,1015,1023,
+  967,975,983,991,999,1007,1015,0,
 };
 
 uint32_t triangle_LUT[NS] = {
@@ -417,8 +417,9 @@ void EXTI0_1_IRQHandler(void)
 {
 	// TODO: Debounce using HAL_GetTick()
   // TASK 5: Debounce button press and change waveform
-  if (HAL_GetTick() - last_debounce_time > debounce_delay) {
-    last_debounce_time = HAL_GetTick();
+  uint32_t current_time = HAL_GetTick();
+  if (current_time - last_debounce_time > debounce_delay) {
+    last_debounce_time = current_time;
     LUT_index = (LUT_index + 1) % 3; // increment LUT_index and wraps around
   }
   else {
