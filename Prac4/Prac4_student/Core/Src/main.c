@@ -37,7 +37,7 @@
 // TASK 2: Define values for NS, TIM2CLK, and F_SIGNAL
 #define NS        128// Number of samples in LUT
 #define TIM2CLK   8000000// STM Clock frequency
-#define F_SIGNAL  900// Frequency of output analog signal
+#define F_SIGNAL  50// Frequency of output analog signal
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
